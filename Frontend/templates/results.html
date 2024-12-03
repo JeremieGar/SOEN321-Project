@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrivacyIQ: Analysis Results</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .result {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .no-risk {
+            background-color: #c8e6c9;
+        }
+
+        .low-risk {
+            background-color: #fff9c4;
+        }
+
+        .medium-risk {
+            background-color: #ffeb3b;
+        }
+
+        .high-risk {
+            background-color: #ff7043;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PrivacyIQ: Privacy Policy Analysis Results</h1>
+        </header>
+
+        <div>
+            {% for entry in processed_text %}
+                <div class="result {% if entry.label == 0 %}no-risk{% elif entry.label == 1 %}low-risk{% elif entry.label == 2 %}medium-risk{% else %}high-risk{% endif %}">
+                    <p><strong>Sentence:</strong> {{ entry.text }}</p>
+                    <p><strong>Label:</strong>
+                        {% if entry.label == 0 %}
+                            No Risk
+                        {% elif entry.label == 1 %}
+                            Low Risk
+                        {% elif entry.label == 2 %}
+                            Medium Risk
+                        {% else %}
+                            High Risk
+                        {% endif %}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+
+
+    </div>
+</body>
+</html>
