@@ -7,7 +7,6 @@ def main():
     print("Welcome to PrivacyIQ")
     model, tokenizer = load_model()
 
-    # Load the test dataset
     test_data = pd.read_csv("data/test_data.csv")
     texts = test_data["text"].tolist()
     true_labels = test_data["label"].tolist()
@@ -15,7 +14,6 @@ def main():
     # Define class labels
     labels = ["No Risk", "Low Risk", "Medium Risk", "High Risk", "Critical Risk"]
 
-    # Run inference and collect predictions
     predicted_labels = []
     for text in texts:
         probabilities = run_inference(text, model, tokenizer)
@@ -26,7 +24,6 @@ def main():
     present_classes = sorted(set(true_labels))
     present_labels = [labels[i] for i in present_classes]
 
-    # Evaluate the model
     print("\nClassification Report:")
     print(classification_report(true_labels, predicted_labels, labels=present_classes, target_names=present_labels))
 
