@@ -19,7 +19,7 @@ def index():
 
             total_score = 0
             count = 0
-            risk_scores = {"No risk": 0, "Low risk": 1, "Medium risk": 2, "High risk": 3}
+            risk_scores = {"No risk": 3, "Low risk": 2, "Medium risk": 1, "High risk": 0}
 
             for entry in processed_text:
                 label = entry.get("label")
