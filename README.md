@@ -1,4 +1,18 @@
 # SOEN321-Project
+## Ishai Cohen - Jeremie Garzon - Jeremy Rimokh - David Dahan
 
 
-Make sure to install all the requirements in the requirements.txt in order to run the system on your own device and to downgrade numpy by 2 versions for it to work properly 
+
+
+## Requirements
+Make sure to install all the requirements found in requirements.txt 
+
+Downgrade numpy to version 1.26.4
+
+
+
+## Run
+
+Run app.py in the frontend folder.
+
+On run, click the address generated in the output console and it will open in your browser
