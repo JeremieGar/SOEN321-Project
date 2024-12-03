@@ -27,6 +27,18 @@
             color: #333;
         }
 
+        .average-score {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            background-color: #e3f2fd;
+            border-radius: 5px;
+        }
+
         .result {
             margin-bottom: 20px;
             padding: 10px;
@@ -61,8 +73,11 @@
     <div class="container">
         <header>
             <h1>PrivacyIQ: Privacy Policy Analysis Results</h1>
+            <!-- Section to display the average score -->
+            <div class="average-score">
+                Average Risk Score: {{ average_score }}
+            </div>
         </header>
-
         <div>
             {% for entry in processed_text %}
                 <div class="result {% if entry.label == 0 %}no-risk{% elif entry.label == 1 %}low-risk{% elif entry.label == 2 %}medium-risk{% else %}high-risk{% endif %}">
@@ -81,8 +96,7 @@
                 </div>
             {% endfor %}
         </div>
-
-
     </div>
 </body>
 </html>
+
